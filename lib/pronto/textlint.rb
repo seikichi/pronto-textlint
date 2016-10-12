@@ -1,4 +1,4 @@
-require "pronto/textlint/version"
+require 'pronto/textlint/version'
 
 module Pronto
   module Textlint
