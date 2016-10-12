@@ -7,3 +7,16 @@
 /pkg/
 /spec/reports/
 /tmp/
+
+# textlint
+package.json
+/node_modules/
+.textlintrc
+
+# Emacs
+.*~
+*~
+
+# bundlr
+*.gem
+vendor/
