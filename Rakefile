@@ -1,10 +1,16 @@
-require 'bundler/gem_tasks'
-require 'rake/testtask'
+# coding: UTF-8
 
-Rake::TestTask.new(:test) do |t|
+require 'rake/testtask'
+require 'bundler/gem_tasks'
+require 'rubocop/rake_task'
+
+task default: [:test]
+
+Rake::TestTask.new do |t|
   t.libs << 'test'
-  t.libs << 'lib'
-  t.test_files = FileList['test/**/*_test.rb']
+  t.ruby_opts = ['-r./test/helper']
+  t.test_files = Dir['test/**/test_*.rb']
+  t.verbose = true
 end
 
-task default: :test
+RuboCop::RakeTask.new
