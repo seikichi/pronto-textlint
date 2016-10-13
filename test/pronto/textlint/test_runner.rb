@@ -1,13 +1,13 @@
 # coding: utf-8
 
-class TestTextlint < Test::Unit::TestCase
+class TestTextlintRunner < Test::Unit::TestCase
   test '#run returns empty array when patches are nil' do
-    runner = Pronto::Textlint.new(nil)
+    runner = Pronto::Textlint::Runner.new(nil)
     assert_equal([], runner.run)
   end
 
   test '#run returns empty array when no patches' do
-    runner = Pronto::Textlint.new([])
+    runner = Pronto::Textlint::Runner.new([])
     assert_equal([], runner.run)
   end
 
@@ -15,7 +15,7 @@ class TestTextlint < Test::Unit::TestCase
     patch = Pronto::Git::Patch.new
     mock(patch).additions { 0 }
 
-    runner = Pronto::Textlint.new([patch])
+    runner = Pronto::Textlint::Runner.new([patch])
     assert_equal([], runner.run)
   end
 end
