@@ -1,5 +1,7 @@
+require 'pronto'
+
 module Pronto
-  module Textlint
+  class Textlint < Runner
     VERSION = '0.1.0'
   end
 end
