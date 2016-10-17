@@ -52,7 +52,8 @@ module Pronto
       end
 
       def new_message(offence, line)
-        Message.new(offence['path'], line, :warning, offence['message'], nil, self.class)
+        path = line.patch.delta.new_file[:path]
+        Message.new(path, line, :warning, offence['message'], nil, self.class)
       end
 
       def clean_up_textlint_output(output)
